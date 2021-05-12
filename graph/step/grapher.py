@@ -17,10 +17,10 @@ def total(
     return amount + increase(amount, percentage)
 
 
-def get_growth(
+def growth(
         initial: int,
-        iterations: int,
-        percentage: float
+        percentage: float,
+        iterations: int
 ) -> List[int]:
     return [initial, *(initial := total(amount=initial, percentage=percentage) for _ in range(iterations))]
 
