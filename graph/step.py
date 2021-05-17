@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List
+from typing import List, Callable
 
 
 class Step:
@@ -15,6 +15,9 @@ class Step:
     def new_increase(self, percentage: float) -> Step:
         return Step(int(self.value + self.value * percentage))
 
-    def growth(self, percentage: float, iterations: int) -> List[Step]:
+    def growth_percentage(self, percentage: float, iterations: int) -> List[Step]:
+        return self.growth(lambda s: s.new_increase(percentage), iterations)
+
+    def growth(self, func: Callable[[Step], Step], iterations: int) -> List[Step]:
         initial = self
-        return [initial, *(initial := initial.new_increase(percentage) for _ in range(iterations))]
+        return [initial, *(initial := func(initial) for _ in range(iterations))]

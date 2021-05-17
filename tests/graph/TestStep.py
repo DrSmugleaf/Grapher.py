@@ -19,6 +19,6 @@ class TestStep(TestCase):
 
     def test_growth(self):
         step = Step(1000)
-        growth = step.growth(percentage=0.1, iterations=3)
+        growth = step.growth_percentage(percentage=0.1, iterations=3)
 
         self.assertEqual([1000, 1100, 1210, 1331], [s.value for s in growth])
