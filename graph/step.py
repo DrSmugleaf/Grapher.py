@@ -19,5 +19,5 @@ class Step:
         return self.growth(lambda s: s.new_increase(percentage), iterations)
 
     def growth(self, func: Callable[[Step], Step], iterations: int) -> List[Step]:
-        initial = self
-        return [initial, *(initial := func(initial) for _ in range(iterations))]
+        current = self
+        return [current, *(current := func(current) for _ in range(iterations))]
