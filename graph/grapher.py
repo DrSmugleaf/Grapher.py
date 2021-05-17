@@ -17,7 +17,7 @@ def plot(
     ax.annotate(f"{first:,}", (0, first))
 
     last = x[-1]
-    ax.annotate(f"{last:,}", (len(x), last))
+    ax.annotate(f"{last:,}", (len(x) - 1, last))
 
     pyplot.grid(True)
     pyplot.title(title, fontsize=font_size)
