@@ -3,28 +3,6 @@ from typing import List
 from matplotlib import pyplot
 
 
-def increase(
-        amount: int,
-        percentage: float
-) -> int:
-    return int(amount * percentage)
-
-
-def total(
-        amount: int,
-        percentage: float
-) -> int:
-    return amount + increase(amount, percentage)
-
-
-def growth(
-        initial: int,
-        percentage: float,
-        iterations: int
-) -> List[int]:
-    return [initial, *(initial := total(amount=initial, percentage=percentage) for _ in range(iterations))]
-
-
 def plot(
         x: List[int],
         title: str = None,
